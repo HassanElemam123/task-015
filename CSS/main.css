@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Glory", sans-serif;
+}
+button {
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover{
+  background-color: azure;
+}
+.container {
+  margin: 24px auto;
+  max-width: 1236px;
+}
+.container header h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 0;
+  font-family: "Cairo", sans-serif;
+}
+.container header > span {
+  height: 6px;
+  width: 100px;
+  background-color: #007BFF;
+  border-radius: 60px;
+  display: block;
+  margin-bottom: 50px;
+}
+.container .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.container .card {
+  padding: 10px;
+  border: 1px solid #32323232;
+  border-radius: 6px;
+  width: 300px;
+}
+.container .card > img {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #32323232;
+  object-fit: cover;
+}
+.container .card h3{
+  font-size: 22px;
+  font-weight: bold;
+  color: #323232;
+  margin-block: 8px;
+}
+.container .card p {
+  color: #32323296;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.container .card .rp{
+  color: #28A745;
+  font-size: 22px;
+  font-weight: bold;
+}
+.container .card .wp{
+  color: #DC3545;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 4px;
+  /* text-decoration: line-through; الخط مداري علي الرقم جدا فانا انا اتجهت لحل تاني */
+  position: relative;
+  display: inline-block;
+}
+/* الحل التاني عملت ديف كخط ماشي ف نص الكلمه  */
+.container .card .wp .line { 
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed #DC3545;
+}
+.action {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+}
+.action .adding {
+  height: 50px;
+  width: 220px;
+  font-size: 20px;
+  background-color: #007BFF;
+  color: #ffffff ;
+  border-radius: 0 0 0 6px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  border: none;
+}
+.action .removing {
+  height: 50px;
+  width: 220px;
+  font-size: 20px;
+  background-color: rgb(198, 1, 1);
+  color: #ffffff ;
+  border-radius: 0 0 0 6px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  border: none;
+}
+.action .adding img {
+  margin-right: 3px;
+}
+.action .emotion {
+  height: 50px;
+  width: 50px;
+  border: 2px solid #007BFF;
+  background-color: #ffffff;
+  color: #007BFF;
+  border-radius: 0 0 6px 0;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.action .emotion:hover{
+  background-color: azure;
+}
+nav {
+  background-color: #007BFF;
+  width: 100%;  
+  height: 8svh;
+  display: flex;
+  position: sticky;
+  top:0;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar {
+  display: flex;
+  gap: 8px;
+  margin-block: 5px;
+}
+
+.search-bar input[type="search"] {
+  padding: 5px 10px;
+  border-radius: 15px;
+  width: 400px;
+  border: none;
+}
+.search-bar input[type="search"]:focus {
+  outline: none;
+}
+.search-bar button {
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: none;
+}
+
+@media screen and (max-width: 480px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  nav {
+    height: 15svh;
+  }
+
+  .search-bar input[type="search"],
+  .search-bar button {
+    width: 100%;
+  }
+}
+
+.filter-holder {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.filter-holder input[type="search"] {
+  padding: 5px 10px;
+  border-radius: 15px;
+  width: 400px; 
+  border: 1px solid #007BFF;
+  background-color: rgb(239, 239, 239);
+  outline: none;
+}
+.filter-holder input[type="search"]::placeholder {
+  color: black;
+}
+.filter-holder button {
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+.filter-holder button:hover {
+  background-color: #007bffda;
+}
+
+@media screen and (max-width: 925px) {
+  .filter-holder {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .filter-holder input[type="search"],
+  .filter-holder button {
+    width: 100%;
+  }
+}
