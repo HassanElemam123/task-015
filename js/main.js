@@ -297,14 +297,9 @@ cartP.addEventListener("click", () => {
 
 
 
-// ===============================
-// WISH LIST (Add ONLY at the end)
-
-// 1) بيانات الويش
 let showingWish = false;
 const wishedProducts = [];
 
-// 2) نبني ليست الويش من products
 function buildWishList() {
   const wishList = [];
   for (let i = 0; i < products.length; i++) {
@@ -313,12 +308,11 @@ function buildWishList() {
   return wishList;
 }
 
-// 3) نغلف renderProducts (بدون تعديل جوّاه) عشان نربط زرار القلب اللي جوّه الكارت
 const _render = renderProducts;
 renderProducts = function (list) {
   _render(list);
 
-  const hearts = document.querySelectorAll(".emotion"); // دول بيتعملوا من renderProducts بتاعك
+  const hearts = document.querySelectorAll(".emotion"); 
   for (let i = 0; i < hearts.length; i++) {
     hearts[i].onclick = function () {
       const id = list[i].id;
@@ -327,7 +321,6 @@ renderProducts = function (list) {
       if (idx === -1) wishedProducts.push(id);
       else wishedProducts.splice(idx, 1);
 
-      // لو انت فاتح الويش، خلي الشاشة تفضل ويش بعد التعديل
       if (showingWish) {
         renderProducts(buildWishList());
       }
@@ -335,20 +328,17 @@ renderProducts = function (list) {
   }
 };
 
-// 4) كليك على القلب اللي فوق (اللي معلم عليه بالأحمر) يعرض/يرجع المنتجات
 const wishIcon = document.querySelector(".wish-list");
 wishIcon.addEventListener("click", () => {
   showingWish = !showingWish;
-  showingCart = false; // عشان ما تتعارضش مع السلة
+  showingCart = false;
 
   if (showingWish) renderProducts(buildWishList());
   else renderProducts(products);
 });
 
-// 5) لو فتحت السلة اقفل وضع الويش (بدون تعديل كود السلة بتاعك)
 cartP.addEventListener("click", () => {
   showingWish = false;
 });
 
-// 6) عشان يشتغل من أول مرة بعد ما ضفت البلوك ده
 renderProducts(products);
